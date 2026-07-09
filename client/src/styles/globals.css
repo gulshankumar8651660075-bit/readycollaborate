@@ -4,66 +4,90 @@
 
 @layer base {
   body {
-    @apply bg-workspace-900 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white;
+    @apply bg-[#030408] text-zinc-100 antialiased selection:bg-indigo-500/30 selection:text-indigo-200;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
-/* Glassmorphism utility classes */
-.glass {
-  background: rgba(30, 41, 59, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-card {
-  background: rgba(30, 41, 59, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* Premium Dark Card Configurations */
+.saas-card {
+  background: rgba(13, 15, 23, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
 
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.saas-card-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.glass-card-hover:hover {
-  transform: translateY(-2px);
-  background: rgba(30, 41, 59, 0.7);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 40px 0 rgba(99, 102, 241, 0.15);
+.saas-card-hover:hover {
+  transform: translateY(-3px);
+  background: rgba(16, 18, 30, 0.8);
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(99, 102, 241, 0.05);
 }
 
-/* Grid background decoration */
-.grid-bg {
-  background-size: 40px 40px;
+/* Glowing Elements */
+.glow-indigo {
+  box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.2);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.2);
+}
+
+.border-glow-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.border-glow-hover:focus-within {
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+/* Grid overlay background */
+.saas-grid {
+  background-size: 50px 50px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
 }
 
-/* Custom Scrollbars */
+/* Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 19, 28, 0.6);
+  background: #030408;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.2);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.4);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* Collaborative Cursor Flag */
-.cursor-flag {
-  transition: transform 0.1s ease-out;
+/* Custom typing cursor simulation */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.blinking-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+/* Dragging transition simulations */
+.kanban-column-drop {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.kanban-card-transition {
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
