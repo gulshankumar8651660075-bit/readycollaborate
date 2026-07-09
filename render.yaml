@@ -3,6 +3,7 @@ services:
     name: readycollaborate-backend
     env: node
     plan: free
+    rootDir: server
     buildCommand: npm install && npx prisma db push && npx prisma generate
     startCommand: npm start
     envVars:
