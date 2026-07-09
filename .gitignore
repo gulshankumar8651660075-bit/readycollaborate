@@ -1,0 +1,28 @@
+# Dependency directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Local databases
+server/prisma/dev.db
+server/prisma/dev.db-journal
+
+# Next.js build output
+client/.next/
+client/out/
+
+# Environment files
+.env
+.env.local
+server/.env
+client/.env.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
